@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Project Lists {% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Nom</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ project.name }}</td>
+                    <td>
+                        <!-- Lien pour modifier le projet -->
+                        <a href="{{ path('edit_project', {id: project.id}) }}" class="btn btn-sm btn-outline-dark">Modifier</a>
+
+                        <!-- Lien pour supprimer le projet (à remplir) -->
+                         <a href="{{ path('delete_project', {id: project.id}) }}" class="btn btn-sm btn-outline-danger" >Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
