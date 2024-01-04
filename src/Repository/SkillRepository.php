@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Repository;
 
 use App\Entity\Skill;
@@ -19,5 +18,5 @@ class SkillRepository extends ServiceEntityRepository
         parent::__construct($registry, Skill::class);
     }
 
-    // Ajoutez ici des méthodes spécifiques à votre repository
+    // Ajoutez vos méthodes personnalisées de requête ici, si nécessaire
 }

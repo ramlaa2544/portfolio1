@@ -17,8 +17,8 @@ class Skill
     private ?string $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'skills')]
-    private ?project $project = null;
-
+    private ?Project $project = null;
+    
     public function getId(): ?int
     {
         return $this->id;
